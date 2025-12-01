@@ -3,12 +3,12 @@
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=cp1251" />
-  <title>Эффект печатающей машинки (несколько фраз)</title>
+  <title>С‚РµРєСЃС‚</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #0f172a; /* тёмный фон */
+      background: #0f172a; /* ГІВёГ¬Г­Г»Г© ГґГ®Г­ */
       color: #e5e7eb;
      // font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       display: flex;
@@ -39,7 +39,7 @@
       font-weight: 600;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #facc15; /* курсор */
+      border-right: 2px solid #facc15; /* ГЄГіГ°Г±Г®Г° */
     }
 
     @keyframes blink {
@@ -54,22 +54,22 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="label">Notion-консультант</div>
+    <div class="label">Notion-ГЄГ®Г­Г±ГіГ«ГјГІГ Г­ГІ</div>
     <div id="typing" class="line"></div>
   </div>
 
   <script>
-    // Здесь задаём фразы, которые будут печататься по очереди
+    // Г‡Г¤ГҐГ±Гј Г§Г Г¤Г ВёГ¬ ГґГ°Г Г§Г», ГЄГ®ГІГ®Г°Г»ГҐ ГЎГіГ¤ГіГІ ГЇГҐГ·Г ГІГ ГІГјГ±Гї ГЇГ® Г®Г·ГҐГ°ГҐГ¤ГЁ
     const phrases = [
-      "Алина Калинина — помогаю навести порядок в вашем Notion.",
-      "Создаю понятные системы и рабочие пространства под ваши задачи.",
-      "Оптимизирую процессы, чтобы вы тратили меньше времени на рутину."
+      "С‚РµРєСЃС‚ Notion.",
+      "С‚РµРєСЃС‚.",
+      "С‚РµРєСЃС‚."
     ];
 
     const el = document.getElementById("typing");
-    const typeSpeed = 70;   // скорость печати (мс на символ)
-    const eraseSpeed = 40;  // скорость стирания (мс на символ)
-    const holdTime = 1500;  // пауза после допечатывания фразы (мс)
+    const typeSpeed = 70;   // Г±ГЄГ®Г°Г®Г±ГІГј ГЇГҐГ·Г ГІГЁ (Г¬Г± Г­Г  Г±ГЁГ¬ГўГ®Г«)
+    const eraseSpeed = 40;  // Г±ГЄГ®Г°Г®Г±ГІГј Г±ГІГЁГ°Г Г­ГЁГї (Г¬Г± Г­Г  Г±ГЁГ¬ГўГ®Г«)
+    const holdTime = 1500;  // ГЇГ ГіГ§Г  ГЇГ®Г±Г«ГҐ Г¤Г®ГЇГҐГ·Г ГІГ»ГўГ Г­ГЁГї ГґГ°Г Г§Г» (Г¬Г±)
 
     let phraseIndex = 0;
     let charIndex = 0;
@@ -79,12 +79,12 @@
       const currentPhrase = phrases[phraseIndex];
 
       if (!isDeleting) {
-        // печатаем
+        // ГЇГҐГ·Г ГІГ ГҐГ¬
         el.textContent = currentPhrase.slice(0, charIndex + 1);
         charIndex++;
 
         if (charIndex === currentPhrase.length) {
-          // фраза допечатана
+          // ГґГ°Г Г§Г  Г¤Г®ГЇГҐГ·Г ГІГ Г­Г 
           el.classList.add("typing-done");
           setTimeout(() => {
             isDeleting = true;
@@ -96,12 +96,12 @@
 
         setTimeout(typeLoop, typeSpeed);
       } else {
-        // стираем
+        // Г±ГІГЁГ°Г ГҐГ¬
         el.textContent = currentPhrase.slice(0, charIndex - 1);
         charIndex--;
 
         if (charIndex === 0) {
-          // переходим к следующей фразе
+          // ГЇГҐГ°ГҐГµГ®Г¤ГЁГ¬ ГЄ Г±Г«ГҐГ¤ГіГѕГ№ГҐГ© ГґГ°Г Г§ГҐ
           isDeleting = false;
           phraseIndex = (phraseIndex + 1) % phrases.length;
           setTimeout(typeLoop, typeSpeed);
@@ -115,4 +115,5 @@
     typeLoop();
   </script>
 </body>
+
 </html>
